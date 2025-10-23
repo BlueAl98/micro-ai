@@ -1,7 +1,6 @@
 package com.blue.micro_ai.service
 
 import com.blue.micro_ai.model.ApiResponse
-import com.blue.micro_ai.model.CvAnalysisResult
 import org.springframework.stereotype.Service
 
 @Service
@@ -16,7 +15,7 @@ class AiService (
      * @param providerName The AI provider name (default: "ollamaProvider").
      */
     fun <T> getAiData(
-        prompt: String,
+        prompt: String?,
         responseType: Class<T>,
         providerName: String = "ollamaProvider"
     ): ApiResponse<T> {
