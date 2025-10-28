@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ${SPRING_APP_NAME:micro-ai}
+    model: ${SPRING_AI_MODEL:qwen2.5:3b}
+
+base:
+  url:
+    ai: ${BASE_URL_AI:http://localhost:11434}
+
+server:
+  port: ${SERVER_PORT:8083}
+
+

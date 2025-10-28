@@ -4,16 +4,19 @@ import com.blue.micro_ai.model.ApiResponse
 import com.blue.micro_ai.model.OllamaResponse
 import com.blue.micro_ai.model.ResponseAi
 import com.fasterxml.jackson.databind.ObjectMapper
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
 
 @Service("ollamaProvider")
 class OllamaService(private val webClient: WebClient,  private val objectMapper: ObjectMapper): AiProvider {
 
+    @Value("\${spring.application.model}")
+    private val modelName: String = "qwen2.5:3b"
 
     override fun <T> chat(message: String?, responseType: Class<T>): ApiResponse<T> {
         val request = mapOf(
-            "model" to "qwen2.5:3b",
+            "model" to modelName,
             "messages" to listOf(mapOf("role" to "user", "content" to message))
         )
 

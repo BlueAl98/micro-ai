@@ -16,7 +16,6 @@ class Controller (
     private val aiService: AiService
 ){
 
-
     @PostMapping
     fun generalAi(
         @Valid  @RequestBody request: RequestAi
